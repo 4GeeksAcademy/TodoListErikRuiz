@@ -24,26 +24,26 @@ const Home = () => {
         <input
           type="text"
           className="todo-input"
-          placeholder="¿Que Tienes que hacer?"
+          placeholder="¿Qué tienes que hacer?"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyPress}
         />
         {tasks.length === 0 ? (
-          <div className="todo-emtpty">No hay tareas, añadir tareas</div>
+          <div className="todo-empty">No hay tareas, añade alguna</div>
         ) : (
           tasks.map((task, index) => (
             <div className="todo-item" key={index}>
-              {task}
+              <span>{task}</span>
               <span className="delete-btn" onClick={() => removeTask(index)}>🗑</span>
             </div>
           ))
         )}
-        <div className="todo-footer">{tasks.length} item{tasks.length !== 1 && 's'} left</div>
+        <div className="todo-footer">{tasks.length} tarea{tasks.length !== 1 && 's'} pendiente{tasks.length !== 1 && 's'}</div>
       </div>
-	  <div>
-				<ThemeToggle />
-			</div>
+      <div>
+        <ThemeToggle />
+      </div>
     </div>
   );
 };
